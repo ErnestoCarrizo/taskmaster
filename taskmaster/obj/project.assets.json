@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "CommandLineParser/2.9.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/CommandLine.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/CommandLine.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.Configuration/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -216,6 +229,28 @@
     }
   },
   "libraries": {
+    "CommandLineParser/2.9.1": {
+      "sha512": "OE0sl1/sQ37bjVsPKKtwQlWDgqaxWgtme3xZz7JssWUzg5JpMIyHgCTY9MVMxOg48fJ1AgGT3tgdH5m/kQ5xhA==",
+      "type": "package",
+      "path": "commandlineparser/2.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CommandLine20.png",
+        "License.md",
+        "README.md",
+        "commandlineparser.2.9.1.nupkg.sha512",
+        "commandlineparser.nuspec",
+        "lib/net40/CommandLine.dll",
+        "lib/net40/CommandLine.xml",
+        "lib/net45/CommandLine.dll",
+        "lib/net45/CommandLine.xml",
+        "lib/net461/CommandLine.dll",
+        "lib/net461/CommandLine.xml",
+        "lib/netstandard2.0/CommandLine.dll",
+        "lib/netstandard2.0/CommandLine.xml"
+      ]
+    },
     "Microsoft.Extensions.Configuration/8.0.0": {
       "sha512": "0J/9YNXTMWSZP2p2+nvl8p71zpSwokZXZuJW+VjdErkegAnFdO1XlqtA62SJtgVYHdKu3uPxJHcMR/r35HwFBA==",
       "type": "package",
@@ -597,6 +632,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "CommandLineParser >= 2.9.1",
       "Microsoft.Extensions.Configuration.Json >= 8.0.0",
       "Newtonsoft.Json >= 13.0.3"
     ]
@@ -643,6 +679,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "CommandLineParser": {
+            "target": "Package",
+            "version": "[2.9.1, )"
+          },
           "Microsoft.Extensions.Configuration.Json": {
             "target": "Package",
             "version": "[8.0.0, )"

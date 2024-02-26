@@ -34,7 +34,8 @@ internal class Program
                 if (!File.Exists(tasksfile)){
                     File.Create(tasksfile).Close();
                 }
-                string dataToWrite = $@"{{""Title"":""{args[1]}"", ""Description"":""{args[2]}"", ""Date"":""{args[3]}""}}";
+                DateTime date = DateTime.ParseExact(args[3], "yyyy-MM-dd", null);
+                string dataToWrite = $@"{{""Title"":""{args[1]}"", ""Description"":""{args[2]}"", ""Date"":""{date}""}}";
                 JObject jsonData = JObject.Parse(dataToWrite);
                 string fileContent = File.ReadAllText(tasksfile) == "" ? "[]" : File.ReadAllText(tasksfile);
                 JArray tasksArray = JArray.Parse(fileContent);
@@ -115,7 +116,7 @@ static void DisplayHelp(){
     Console.WriteLine("taskmaster v1.0.0");
     Console.WriteLine("-------------");
     Console.WriteLine("\nUsage:");
-    Console.WriteLine("  taskmaster create <title> <description> <date>");
+    Console.WriteLine("  taskmaster create <title> <description> <date 'yyyy-MM-dd'>");
     Console.WriteLine("  taskmaster list");
     Console.WriteLine("  taskmaster delete <title>");
     Console.WriteLine("  taskmaster edit <title> <new description>");
